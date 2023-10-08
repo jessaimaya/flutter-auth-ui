@@ -79,7 +79,7 @@ class _SupaMagicAuthState extends State<SupaMagicAuth> {
             ),
             controller: _email,
           ),
-          spacer(16),
+          spacer(30),
           ElevatedButton(
             child: (_isLoading)
                 ? SizedBox(
@@ -107,7 +107,8 @@ class _SupaMagicAuthState extends State<SupaMagicAuth> {
                   emailRedirectTo: widget.redirectUrl,
                 );
                 if (mounted) {
-                  context.showSnackBar('Check your email inbox!');
+                  // context.showSnackBar('Check your email inbox!');
+                  event<EmailSentEvent>();
                 }
               } on AuthException catch (error) {
                 if (widget.onError == null) {
